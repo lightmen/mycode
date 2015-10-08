@@ -14,11 +14,18 @@ int toolbox_main(int argc, char **argv)
 
 }
 
-struct {
+#define TOOL(name) int name##_main(int, char **);
+#include "tools.h"
+#undef TOOL
+
+static struct {
 	const char *name;
 	int (*func)(int argc, char **argv);
 } tools[] = {
 	{"toolbox", toolbox_main},
+#define TOOL(name) {#name, name##_main},
+#include "tools.h"
+#undef TOOL
 	{0, 0},
 };
 
