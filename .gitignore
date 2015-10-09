@@ -1,0 +1,7 @@
+# For C
+*.o
+
+# Mac
+.DS_Store
+*.dSYM
+
