@@ -1,15 +1,15 @@
+CC = gcc
+CFLAGS =
+
 objects = toolbox.o exists.o
 
 all: toolbox
 
-toolbox: $(objects)
-	gcc $(objects) -o toolbox
+toolbox: $(objects) tools.h
+	$(CC) $(objects) -o toolbox
 
-toolbox.o: toolbox.c tools.h
-	gcc -c toolbox.c
-
-exists.o : exists.c
-	gcc -c exists.c
+$(objects): %.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
