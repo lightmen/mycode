@@ -1,13 +1,16 @@
+objects = toolbox.o exists.o
+
 all: toolbox
 
-toolbox: toolbox.o exists.o
-	gcc toolbox.o exists.o -o toolbox
+toolbox: $(objects)
+	gcc $(objects) -o toolbox
 
-toolbox.o: toolbox.c
-	gcc -c toolbox.c -o toolbox.o
+toolbox.o: toolbox.c tools.h
+	gcc -c toolbox.c
 
 exists.o : exists.c
-	gcc -c exists.c -o exists.o
+	gcc -c exists.c
 
+.PHONY: clean
 clean:
-	rm -rf toolbox *.out *.dSYM *.o
+	rm -rf toolbox $(objects)
