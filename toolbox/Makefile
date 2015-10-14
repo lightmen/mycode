@@ -2,7 +2,8 @@ CC = gcc
 CFLAGS =
 
 objects = toolbox.o exists.o umount.o \
-	clear.o
+	clear.o \
+	stop.o
 
 all: toolbox
 
