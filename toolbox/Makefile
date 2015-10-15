@@ -7,6 +7,7 @@ objects = \
 	clear.o \
 	stop.o \
 	start.o \
+	df.o \
 	toolbox.o
 
 all: toolbox
