@@ -48,6 +48,26 @@ int df_main(int argc, char **argv)
 {
 	printf("Filesystem               Size     Used     Free   Blksize\n");
 	if(argc == 1){
+		char s[2000];
+		FILE *f = fopen("/proc/mounts","r");
+
+		if(f == NULL){
+			fprintf(stderr,"%s: %s\n","/proc/mounts",strerror(errno));
+			return errno;
+		}
+
+		while(fgets(s,2000,f)){
+			char *c, *e = s;
+
+			for(c = s; *c; c++){
+				if(*c == ' '){
+					e = c+1;
+					break;
+				}
+			}
+		
+			df(e,0);
+		}
 	}else{
 		int i;
 
