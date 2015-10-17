@@ -8,6 +8,7 @@ objects = \
 	stop.o \
 	start.o \
 	df.o \
+	dmesg.o \
 	toolbox.o
 
 all: toolbox
