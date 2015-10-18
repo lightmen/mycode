@@ -9,6 +9,7 @@ objects = \
 	start.o \
 	df.o \
 	dmesg.o \
+	setprop.o \
 	toolbox.o
 
 all: toolbox
