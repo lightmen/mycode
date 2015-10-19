@@ -10,6 +10,7 @@ objects = \
 	df.o \
 	dmesg.o \
 	setprop.o \
+	mkdir.o \
 	toolbox.o
 
 all: toolbox
